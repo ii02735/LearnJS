@@ -150,3 +150,39 @@ console.log(firstObject);
 console.warn(anonymousIIFE); //will result an error
 console.warn(test); //will result an error 
 */
+
+
+function speak(lang)
+{
+	lang = lang || 'en'; //by default it is english
+	switch(lang)
+	{
+		case 'fr':
+		console.log("Bonjour");
+		break;
+		case 'en':
+		console.log("Hello");
+		break;
+		case 'es':
+		console.log("Hola");
+		break;
+	}
+}
+
+//Overloading is not technically possible in JS, but it is possible to emulate it by delegation (hence the argument won't be mandatory)
+//You can also make a default value if you want
+
+function speakFr()
+{
+	speak('fr');
+}
+
+function speakEn()
+{
+	speak('en'); //or speak() because it is the default value
+}
+
+function speakEs()
+{
+	speak('es');
+}

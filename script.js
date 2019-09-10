@@ -57,30 +57,32 @@ function countingLetters(s){
 	//Because we return a group functions, closure applies, hence
 	//resources in countingLetters() are usables but ONLY in these FUNCTIONS
  	var names = ["Paul","Sullivan","Sasha","Erwin","Marco"];
-    var arrNames = [];
+    var arrNamesFunctions = [];
  	for(name of names)
  	{
  		/*
- 		arrNames.push(function(){
+ 		arrNamesFunctions.push(function(){
  			console.log(name + " length = " + name.length)
  		})
         wrong here, only final name value is saved because code is not executed
  		*/
 
- 		//we must execute the code in order to save changes made by the loop
+ 		//we must execute the code once in order to save changes made by the loop
  		//we must store the changed value in the IIFE, by parameter (more frequent) or variable
- 		arrNames.push((function(n){
+ 		arrNamesFunctions.push((function(n){
  			return function(s){
- 				if(s)
+ 				if(s) //add some parameters to functions...
  					console.log(s + " added for " + n);
  				console.log(n + " length = " + (n.length + s));
  			}//function code will be updated (n interpreted) because IIFE executes automatically the method's context code
  		})(name));
  	}
- 	return arrNames;
+ 	return arrNamesFunctions;
 }
 
 var l = countingLetters();
 var sup = [1,2,3,4,5];
 for(var i = 0; i<sup.length;i++)
 	l[i](sup[i]);
+
+
