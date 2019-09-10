@@ -25,17 +25,18 @@ var connect = (function () //IIFE made in order to directly access to objects wi
 	{
 		for(var i = 0; i<20; i++)
 		{	
-			(function(){
+			(function(i){
 				setTimeout(function(){
 					var time = new Date(); //in order to refresh time at each IIFE
-					console.info("[200 OK "+i+"] "+ time.toLocaleTimeString() + " at " + address + " after " + randomNumber(50,500) + " ms");
+					console.info("Call ping "+i+" : [200 OK] "+ time.toLocaleTimeString() + " at " + address + " after " + randomNumber(50,500) + " ms");
 					console.log("wait for " + 500 + " ms ");
 				},500*i); 
-				/* we must pass i because it the only date that will be updated  (loop + IIFE -> auto invoke to update code function*)
+				/* we must pass i because it is the only data that will be updated  (loop counter + IIFE -> auto invoke to update code function*)
 				 * else it would be executed one time because the closure call is in RETURN --> *the IIFE make the code updated STILL after RETURN
 				 * * remember that functions are OBJECTS, hence their CODE are ATTRIBUTES !
 				 */
-			})();
+			})(i+1); //Without IIFE it would work but i paramter won't be updated for tracing, 
+					 // setTimeout doesn't need it because it cannot be injected in the first argument which is another function
 			
 		}
 	}

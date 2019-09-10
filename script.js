@@ -84,3 +84,48 @@ var l = countingLetters();
 var sup = [1,2,3,4,5];
 for(var i = 0; i<sup.length;i++)
 	l[i](sup[i]);
+
+//Factory example for showing closure advantages (variable reusing for sub function)
+function factoryStudent(discipline)
+{
+	return function(/*don't need to fill again discipline as a parameter thanks to closure*/name, firstname)
+	{
+		switch(discipline) // discipline is still visible after return because of closure feature
+		{
+			case 'IT':
+				return {
+					name: name,
+					firstname: firstname,
+					study: discipline,
+					action: function(){
+						console.log('Using computer')
+					}
+				};
+			case 'Medical':
+				return {
+					name: name,
+					firstname: firstname,
+					study: discipline,
+					action: function(){
+						console.log('Studying medical books')
+					}
+				};
+			default:
+				return {
+					name: name,
+					firstname: firstname,
+					study: 'Unknown',
+					action: function(){
+						console.warn('Still waiting for registering results');
+					}
+				}
+		}
+	}
+}
+
+var ITFactory = factoryStudent('IT');
+var MedFactory = factoryStudent('Medical');
+var NotRegisteredFactory = factoryStudent('Unknown');
+
+//Closures are useful here : it prevents to fill the same parameters for the returning function
+//ITPupils('john','doe') instead of ITPupils('IT','john','doe')
