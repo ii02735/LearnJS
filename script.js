@@ -3,11 +3,11 @@ function functions(){
 	for(var i = 0; i<5; i++)
 	{
 	
-		arr.push(function(j){
+		arr.push(function(){
 			 //functions are pushed --> those are NOT executed, 
 			//they are just have the same CODE, because they are not executed,
 			//the value of i is "i" , the real value will be when the return is hit
-			console.log(j+1);
+			console.log(i);
 		});
 	}
 	return arr; //return multiple functions
