@@ -64,7 +64,7 @@ function countingLetters(s){
  		arrNamesFunctions.push(function(){
  			console.log(name + " length = " + name.length)
  		})
-        wrong here, only final name value is saved because code is not executed
+        wrong here, only final name value is saved because code is not interpreted before saving to array
  		*/
 
  		//we must execute the code once in order to save changes made by the loop
