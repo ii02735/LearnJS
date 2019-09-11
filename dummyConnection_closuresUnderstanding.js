@@ -1,7 +1,14 @@
 var names = ["Paul","Sullivan","Sasha","Erwin","Marco"];
 
-var connect = (function () //IIFE made in order to directly access to objects with variable instead of invoking the function each time
-	//IIFE is a good way to write code safely, that is independant from other parts : variables names for example are safe from upper environments (like global)
+var connect = (function () 
+	 /*IIFE made in order to initialize once variables of main function. Else, we must invoke the father function first 
+	 in order to invoke the second one. However, by invoking the main function first, we REINITIALIZE these variables.
+	 IIFE prevents us to initialize them
+	 */
+	/*Please recall that IIFE is a good way to write code safely, 
+	  that is independant from other parts : variables names for example are safe from upper environments (like global)
+	  (when we use it outside a variable and in upper environments)
+	  */
 {
 	var connected = false;
 	var userAttr = null;
