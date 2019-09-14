@@ -129,3 +129,29 @@ var NotRegisteredFactory = factoryStudent('Unknown');
 
 //Closures are useful here : it prevents to fill the same parameters for the returning function
 //ITPupils('john','doe') instead of ITPupils('IT','john','doe')
+
+//Other example of object declaring with closures
+
+function Student(name,firstname) //don't need to use IIFE because we declaring a function that can be injected letter (to create multiple objects)
+{
+	var self = {
+		name: name,
+		firstname: firstname
+	}
+	return { //again with closures, only function can manipulate upper arguments
+			 //closures make variables PRIVATE easy to create
+		getFullName: function(){
+			console.log("Fullname : " + self.name + " " + self.firstname);
+		},
+		setters: function(name,firstname)
+		{
+			self.name = name;
+			self.firstname = firstname;
+		}
+	}
+}
+
+var student1 = Student('yadallee','bilaal');
+
+//However, we cannont check student1 instance (it doesn't have an instance in fact)
+//And it is reputed to have slightly better performances with PROTOTYPE
