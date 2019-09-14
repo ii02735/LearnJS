@@ -93,7 +93,7 @@ for(var element of array)
 	console.log(element);
 }
 
-//You can also defining prototype values with simple objects, thanks to Object.create (ECMAScript 5 : modern browsers from 2009)
+//You can also defining prototype values with simple objects (object literal syntax), thanks to Object.create (ECMAScript 5 : modern browsers from 2009)
 //It is like defining objects WITH A MORE STANDARD WAY, instead of creating a function constructor
 
 //BEWARE : the instance will be OBJECT typed !
