@@ -4,7 +4,7 @@
 
 /**
  * Warning : there is no really classes in JS, 
- * this is a marketing argument to make Java developers attracted at the time when JS was build
+ * this is a marketing argument to make Java developers attracted at the time when JS was built
  */
 
  function Person(firstname,name)
